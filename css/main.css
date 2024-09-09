@@ -1231,7 +1231,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #9106bf;
+  background: #ff8130;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2560,11 +2560,14 @@ p {
   margin: 0 0 10px 0;
 }
 .menu-item a {
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 .sidebar {
   font-size: 1.2em;
 }
 .footer {
   font-size: 1.2em;
+}
+.site-title {
+  font-size: 1.8em;
 }
