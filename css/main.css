@@ -1231,7 +1231,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #a66b4b;
+  background: #7e75db;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2570,4 +2570,10 @@ p {
 }
 .site-title {
   font-size: 1.8em;
+}
+.hbe-button {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: -9999px;
 }
