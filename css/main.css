@@ -184,9 +184,9 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  font-size: 13px;
-  line-height: 2;
+  font-family: verdana, Arial, Helvetica, sans-serif;
+  font-size: 12.4px;
+  line-height: 1.6;
   min-height: 100%;
   position: relative;
   transition: padding 0.2s ease-in-out;
@@ -197,7 +197,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: verdana, Arial, Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -517,7 +517,7 @@ pre figcaption a:hover {
 }
 pre,
 code {
-  font-family: consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
+  font-family: consolas, Menlo, monospace, verdana, Arial, Helvetica, sans-serif;
 }
 code {
   border-radius: 3px;
@@ -1091,7 +1091,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: verdana, Arial, Helvetica, sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1231,7 +1231,7 @@ pre code {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #d41f13;
+  background: #9106bf;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1352,7 +1352,7 @@ pre code {
   visibility: hidden;
 }
 .sidebar-nav-active .sidebar-nav {
-  height: calc(2em + 1px);
+  height: calc(1.6em + 1px);
   pointer-events: unset;
   visibility: unset;
 }
@@ -1498,54 +1498,6 @@ pre code {
   top: -6px;
   transform: rotate(-45deg);
 }
-.post-toc {
-  font-size: 0.875em;
-}
-.post-toc ol {
-  list-style: none;
-  margin: 0;
-  padding: 0 2px 0 10px;
-  text-align: left;
-}
-.post-toc ol > :last-child {
-  margin-bottom: 5px;
-}
-.post-toc ol > ol {
-  padding-left: 0;
-}
-.post-toc ol a {
-  transition: all 0.2s ease-in-out;
-}
-.post-toc .nav-item {
-  line-height: 1.8;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.post-toc .nav .nav-child {
-  --height: 0;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition-property: height, opacity, visibility;
-  transition: 0.2s ease-in-out;
-  visibility: hidden;
-}
-.post-toc .nav .active > .nav-child {
-  height: var(--height, auto);
-  opacity: 1;
-  visibility: unset;
-}
-.post-toc .nav .active > a {
-  border-bottom-color: #87daff;
-  color: #87daff;
-}
-.post-toc .nav .active-current > a {
-  color: #87daff;
-}
-.post-toc .nav .active-current > a:hover {
-  color: #87daff;
-}
 .site-state {
   display: flex;
   flex-wrap: wrap;
@@ -1588,7 +1540,7 @@ pre code {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  width: 700px;
+  width: 1300px;
 }
 @media (max-width: 767px) {
   .footer-inner {
@@ -1597,12 +1549,12 @@ pre code {
 }
 @media (min-width: 1200px) {
   .footer-inner {
-    width: 800px;
+    width: 1400px;
   }
 }
 @media (min-width: 1600px) {
   .footer-inner {
-    width: 900px;
+    width: 1500px;
   }
 }
 .use-motion .footer {
@@ -1834,7 +1786,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: verdana, Arial, Helvetica, sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2020,7 +1972,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: verdana, Arial, Helvetica, sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -2536,7 +2488,7 @@ header.header {
 }
 header.header {
   margin: 0 auto;
-  width: 700px;
+  width: 1300px;
 }
 @media (max-width: 767px) {
   header.header {
@@ -2545,17 +2497,17 @@ header.header {
 }
 @media (min-width: 1200px) {
   header.header {
-    width: 800px;
+    width: 1400px;
   }
 }
 @media (min-width: 1600px) {
   header.header {
-    width: 900px;
+    width: 1500px;
   }
 }
 .main-inner {
   margin: 0 auto;
-  width: 700px;
+  width: 1300px;
   padding-bottom: 80px;
 }
 @media (max-width: 767px) {
@@ -2565,12 +2517,12 @@ header.header {
 }
 @media (min-width: 1200px) {
   .main-inner {
-    width: 800px;
+    width: 1400px;
   }
 }
 @media (min-width: 1600px) {
   .main-inner {
-    width: 900px;
+    width: 1500px;
   }
 }
 @media (max-width: 767px) {
@@ -2603,4 +2555,16 @@ header.header {
 }
 .sub-menu .menu-item {
   display: inline-block;
+}
+p {
+  margin: 0 0 10px 0;
+}
+.menu-item a {
+  font-size: 1.2em;
+}
+.sidebar {
+  font-size: 1.2em;
+}
+.footer {
+  font-size: 1.2em;
 }
