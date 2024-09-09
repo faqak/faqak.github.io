@@ -19,27 +19,23 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="背景 ExLucas 多项式平移 min_25 binom 代码实现   背景 我们想求解的是这样一类问题：固定模数 \(p^e\)，多次查询 \(\binom nm \bmod p^e\)，默认一般情况下 \(p &gt; e\)。 当 \(n\) 和 \(m\) 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 \(n\) 和 \(m\) 很大（比如 \(10^{18">
-<meta property="og:type" content="article">
-<meta property="og:title" content="拂面是红尘 亦幻亦当真">
-<meta property="og:url" content="http://example.com/2024/09/09/binom-mod-pe/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Reliauk&#39;s Blog">
+<meta property="og:url" content="http://example.com/default-index/page/2/index.html">
 <meta property="og:site_name" content="Reliauk&#39;s Blog">
-<meta property="og:description" content="背景 ExLucas 多项式平移 min_25 binom 代码实现   背景 我们想求解的是这样一类问题：固定模数 \(p^e\)，多次查询 \(\binom nm \bmod p^e\)，默认一般情况下 \(p &gt; e\)。 当 \(n\) 和 \(m\) 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 \(n\) 和 \(m\) 很大（比如 \(10^{18">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-09-09T07:45:41.924Z">
-<meta property="article:modified_time" content="2024-09-09T07:46:26.856Z">
 <meta property="article:author" content="Reliauk Li">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2024/09/09/binom-mod-pe/">
+<link rel="canonical" href="http://example.com/default-index/page/2/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2024/09/09/binom-mod-pe/","path":"2024/09/09/binom-mod-pe/","title":"拂面是红尘 亦幻亦当真"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"default-index/page/2/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>拂面是红尘 亦幻亦当真 | Reliauk's Blog</title>
+<title>Reliauk's Blog</title>
   
 
 
@@ -72,7 +68,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Reliauk's Blog</p>
+      <h1 class="site-title">Reliauk's Blog</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -140,17 +136,324 @@
 
     </div>
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner index posts-expand">
 
-
-  
+    
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reliauk Li">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/09/-4/" class="post-title-link" itemprop="url">不管我多想留住回忆 它依然随着时光淡去</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-09 22:04:01 / Modified: 22:18:12" itemprop="dateCreated datePublished" datetime="2024-09-09T22:04:01+08:00">2024-09-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Here's something encrypted, password is required to continue reading.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/09/-4/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reliauk Li">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/09/-3/" class="post-title-link" itemprop="url">每次又回到同样海边 还是会对你想念</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-09 22:03:32 / Modified: 22:18:10" itemprop="dateCreated datePublished" datetime="2024-09-09T22:03:32+08:00">2024-09-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Here's something encrypted, password is required to continue reading.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/09/-3/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reliauk Li">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/09/-2/" class="post-title-link" itemprop="url">如果你还有一些困惑 请贴着我的心倾听</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-09 21:24:34 / Modified: 22:18:01" itemprop="dateCreated datePublished" datetime="2024-09-09T21:24:34+08:00">2024-09-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Here's something encrypted, password is required to continue reading.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/09/-2/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reliauk Li">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/09/-1/" class="post-title-link" itemprop="url">我以为走下去是一种默契</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-09 16:37:04 / Modified: 22:17:52" itemprop="dateCreated datePublished" datetime="2024-09-09T16:37:04+08:00">2024-09-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Here's something encrypted, password is required to continue reading.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/09/-1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/binom-mod-pe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -164,13 +467,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="拂面是红尘 亦幻亦当真 | Reliauk's Blog">
+      <meta itemprop="name" content="undefined | Reliauk's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          拂面是红尘 亦幻亦当真
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/09/binom-mod-pe/" class="post-title-link" itemprop="url">拂面是红尘 亦幻亦当真</a>
+        </h2>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -193,7 +496,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><!-- toc -->
+    <div class="post-body" itemprop="articleBody">
+          <!-- toc -->
 <ul>
 <li><a href="#背景">背景</a></li>
 <li><a href="#exlucas">ExLucas</a></li>
@@ -293,6 +597,7 @@ f_e(p, u) &amp;= \exp(\sum_{k \geq 1}b_ks_k(u)p^k)\\
 <h2><span id="代码实现">代码实现</span></h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">Exgcd</span><span class="params">(i64 a, i64 b, i128 &amp;x, i128 &amp;y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!b) <span class="keyword">return</span> x = <span class="number">1</span>, <span class="built_in">void</span>(y = <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">Exgcd</span>(b, a % b, y, x), y -= (a / b) * x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">Inv</span><span class="params">(i64 x, i64 p)</span> </span>&#123;</span><br><span class="line">  i128 a, b;</span><br><span class="line">  <span class="built_in">assert</span>(p), <span class="built_in">Exgcd</span>(x, p, a, b);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;i64&gt;((a % p + p) % p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> binomial &#123;</span><br><span class="line"><span class="type">int</span> p, e;</span><br><span class="line">i64 pe;</span><br><span class="line">std::vector&lt;std::vector&lt;i64&gt;&gt; s1;</span><br><span class="line">std::vector&lt;i64&gt; power_p, power_s1, lag;</span><br><span class="line">std::vector&lt;<span class="type">int</span>&gt; count_p_lag;</span><br><span class="line">std::unordered_map&lt;i64, i64&gt; memo;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">SetMod</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> e)</span> </span>&#123;</span><br><span class="line">  binomial::p = p, binomial::e = e, power_p = &#123;<span class="number">1</span>&#125;, memo.<span class="built_in">clear</span>();</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; e; ++i) power_p.<span class="built_in">emplace_back</span>(power_p.<span class="built_in">back</span>() * p);</span><br><span class="line">  pe = power_p.<span class="built_in">back</span>() * p;</span><br><span class="line">  s1 = std::vector&lt;std::vector&lt;i64&gt;&gt;(p + <span class="number">1</span>, std::<span class="built_in">vector</span>(e + <span class="number">1</span>, i64&#123;<span class="number">0</span>&#125;));</span><br><span class="line">  s1[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= p; ++i) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= e; ++j) &#123;</span><br><span class="line">      s1[i][j] = (i128&#123;i - <span class="number">1</span>&#125; * s1[i - <span class="number">1</span>][j] + s1[i - <span class="number">1</span>][j - <span class="number">1</span>]) % pe;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  power_s1 = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; e; ++i) &#123;</span><br><span class="line">    power_s<span class="number">1.</span><span class="built_in">emplace_back</span>(i128&#123;power_s<span class="number">1.</span><span class="built_in">back</span>()&#125; * s1[p][<span class="number">1</span>] % pe);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  i64 inv = <span class="built_in">Inv</span>(s1[p][<span class="number">1</span>], pe);</span><br><span class="line">  lag = &#123;<span class="number">1</span>&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; <span class="number">2</span> * e - <span class="number">2</span>; ++x) &#123;</span><br><span class="line">    i64 sum = <span class="number">0</span>, mul = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; e; ++i) &#123;</span><br><span class="line">      sum = (sum + i128&#123;mul&#125; * s1[p][i + <span class="number">1</span>] % pe * inv) % pe;</span><br><span class="line">      mul = i128&#123;mul&#125; * x % pe * p % pe;</span><br><span class="line">    &#125;</span><br><span class="line">    lag.<span class="built_in">emplace_back</span>(i128&#123;lag.<span class="built_in">back</span>()&#125; * sum % pe);</span><br><span class="line">  &#125;</span><br><span class="line">  count_p_lag.<span class="built_in">resize</span>(lag.<span class="built_in">size</span>());</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt;= <span class="number">2</span> * e - <span class="number">2</span>; ++x) &#123;</span><br><span class="line">    count_p_lag[x] = <span class="number">0</span>;</span><br><span class="line">    i64 v = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span> * e - <span class="number">2</span>; ++i) &#123;</span><br><span class="line">      <span class="keyword">if</span> (i == x) <span class="keyword">continue</span>;</span><br><span class="line">      <span class="type">int</span> c = x - i;</span><br><span class="line">      <span class="keyword">while</span> (!(c % p)) ++count_p_lag[x], c /= p;</span><br><span class="line">      v = i128&#123;v&#125; * c % pe;</span><br><span class="line">    &#125;</span><br><span class="line">    v = (v + pe) % pe, lag[x] = i128&#123;lag[x]&#125; * <span class="built_in">Inv</span>(v, pe) % pe;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">CountFactor</span><span class="params">(i64 n)</span> </span>&#123;</span><br><span class="line">  i64 cnt = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (; n /= p;) cnt += n;</span><br><span class="line">  <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">Fep</span><span class="params">(i64 n)</span> -&gt; i64 </span>&#123;</span><br><span class="line">  n %= pe;</span><br><span class="line">  <span class="keyword">if</span> (memo.<span class="built_in">count</span>(n)) <span class="keyword">return</span> memo[n];</span><br><span class="line">  <span class="function">std::vector&lt;<span class="type">int</span>&gt; <span class="title">count_p_pre</span><span class="params">(<span class="number">2</span> * e - <span class="number">1</span>)</span>, count_p_suf</span>;</span><br><span class="line">  <span class="function">std::vector&lt;i64&gt; <span class="title">val_pre</span><span class="params">(<span class="number">2</span> * e - <span class="number">1</span>)</span>, val_suf</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span> * e - <span class="number">2</span>; ++i) &#123;</span><br><span class="line">    i64 c = n - i;</span><br><span class="line">    <span class="keyword">if</span> (!c) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">while</span> (!(c % p)) ++count_p_pre[i], c /= p;</span><br><span class="line">    val_pre[i] = (c % pe + pe) % pe;</span><br><span class="line">  &#125;</span><br><span class="line">  count_p_suf = count_p_pre, val_suf = val_pre;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">2</span> * e - <span class="number">1</span>; ++i) count_p_pre[i] += count_p_pre[i - <span class="number">1</span>];</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span> * e - <span class="number">2</span>; i; --i) count_p_suf[i - <span class="number">1</span>] += count_p_suf[i];</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">2</span> * e - <span class="number">1</span>; ++i) &#123;</span><br><span class="line">    val_pre[i] = i128&#123;val_pre[i - <span class="number">1</span>]&#125; * val_pre[i] % pe;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span> * e - <span class="number">2</span>; i; --i) &#123;</span><br><span class="line">    val_suf[i - <span class="number">1</span>] = i128&#123;val_suf[i]&#125; * val_suf[i - <span class="number">1</span>] % pe;</span><br><span class="line">  &#125;</span><br><span class="line">  i64 ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span> * e - <span class="number">2</span>; ++i) &#123;</span><br><span class="line">    <span class="type">int</span> exp = <span class="number">0</span>;</span><br><span class="line">    i64 v = lag[i];</span><br><span class="line">    <span class="keyword">if</span> (i) exp = count_p_pre[i - <span class="number">1</span>], v = i128&#123;v&#125; * val_pre[i - <span class="number">1</span>] % pe;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">2</span> * e - <span class="number">2</span>) &#123;</span><br><span class="line">      exp += count_p_suf[i + <span class="number">1</span>], v = i128&#123;v&#125; * val_suf[i + <span class="number">1</span>] % pe;</span><br><span class="line">    &#125;</span><br><span class="line">    exp -= count_p_lag[i];</span><br><span class="line">    <span class="keyword">if</span> (exp &lt; e) ans = (ans + i128&#123;power_p[exp]&#125; * v) % pe;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> memo[n] = ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">F</span><span class="params">(i64 n)</span> -&gt; i64 </span>&#123;</span><br><span class="line">  i64 ans = <span class="number">0</span>, u = n / p, v = n % p, mul = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; e; ++k) &#123;</span><br><span class="line">    ans = (ans + i128&#123;mul&#125; * s1[v + <span class="number">1</span>][k + <span class="number">1</span>]) % pe;</span><br><span class="line">    mul = i128&#123;mul&#125; * u % pe * p % pe;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> i128&#123;ans&#125; * <span class="built_in">Fep</span>(u) % pe;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">Reduce</span><span class="params">(i64 n)</span> -&gt; i64 </span>&#123;</span><br><span class="line">  i64 mul = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; n; n /= p) mul = i128&#123;mul&#125; * <span class="built_in">F</span>(n) % pe;</span><br><span class="line">  <span class="keyword">return</span> mul;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">auto</span> <span class="title">Binom</span><span class="params">(i64 n, i64 m)</span> -&gt; i64 </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">0</span> || m &lt; <span class="number">0</span> || n &lt; m) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  i64 exp = <span class="built_in">CountFactor</span>(n) - <span class="built_in">CountFactor</span>(m) - <span class="built_in">CountFactor</span>(n - m);</span><br><span class="line">  <span class="keyword">if</span> (exp &gt;= e) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  i64 rn = <span class="built_in">Reduce</span>(n), rm = <span class="built_in">Reduce</span>(m), rnm = <span class="built_in">Reduce</span>(n - m);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;i64&gt;(i128&#123;rn&#125; * <span class="built_in">Inv</span>(rm, pe) % pe * <span class="built_in">Inv</span>(rnm, pe) % pe *</span><br><span class="line">                          power_p[exp] % pe * power_s1[exp] % pe);</span><br><span class="line">&#125;</span><br><span class="line">&#125;  <span class="comment">// namespace binomial</span></span><br></pre></td></tr></table></figure>
 
+      
     </div>
 
     
@@ -300,21 +605,8 @@ f_e(p, u) &amp;= \exp(\sum_{k \geq 1}b_ks_k(u)p^k)\\
     
 
     <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2024/09/09/before-NOI-2023/" rel="prev" title="记不起究竟哪一次 当秋光漫上了窗外花枝">
-                  <i class="fa fa-angle-left"></i> 记不起究竟哪一次 当秋光漫上了窗外花枝
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2024/09/09/-1/" rel="next" title="我以为走下去是一种默契">
-                  我以为走下去是一种默契 <i class="fa fa-angle-right"></i>
-                </a>
-            </div>
-          </div>
+        <div class="post-eof"></div>
+      
     </footer>
   </article>
 </div>
@@ -322,7 +614,86 @@ f_e(p, u) &amp;= \exp(\sum_{k \geq 1}b_ks_k(u)p^k)\\
 
 
 
+    
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/09/before-NOI-2023/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Reliauk Li">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Reliauk's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/09/09/before-NOI-2023/" class="post-title-link" itemprop="url">记不起究竟哪一次 当秋光漫上了窗外花枝</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-09-09 15:13:19 / Modified: 22:18:45" itemprop="dateCreated datePublished" datetime="2024-09-09T15:13:19+08:00">2024-09-09</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          Here's something encrypted, password is required to continue reading.
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/09/09/before-NOI-2023/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/default-index/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/default-index/">1</a><span class="page-number current">2</span>
+  </nav>
 
 </div>
   </main>
