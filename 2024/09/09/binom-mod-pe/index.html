@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="背景 ExLucas 多项式平移 min_25 binom 代码实现   背景 我们想求解的是这样一类问题：固定模数 \(p^e\)，多次查询 \(\binom nm \bmod p^e\)，默认一般情况下 \(p &gt; e\)。 当 \(n\) 和 \(m\) 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 \(n\) 和 \(m\) 很大（比如 \(10^{18">
+    <meta name="description" content="大组合数模小质数幂   背景 ExLucas 多项式平移 min_25 binom 代码实现   背景 我们想求解的是这样一类问题：固定模数 \(p^e\)，多次查询 \(\binom nm \bmod p^e\)，默认一般情况下 \(p &gt; e\)。 当 \(n\) 和 \(m\) 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 \(n\) 和 \(m\) 很大（比">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拂面是红尘 亦幻亦当真">
 <meta property="og:url" content="http://example.com/2024/09/09/binom-mod-pe/index.html">
 <meta property="og:site_name" content="Reliauk&#39;s Blog">
-<meta property="og:description" content="背景 ExLucas 多项式平移 min_25 binom 代码实现   背景 我们想求解的是这样一类问题：固定模数 \(p^e\)，多次查询 \(\binom nm \bmod p^e\)，默认一般情况下 \(p &gt; e\)。 当 \(n\) 和 \(m\) 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 \(n\) 和 \(m\) 很大（比如 \(10^{18">
+<meta property="og:description" content="大组合数模小质数幂   背景 ExLucas 多项式平移 min_25 binom 代码实现   背景 我们想求解的是这样一类问题：固定模数 \(p^e\)，多次查询 \(\binom nm \bmod p^e\)，默认一般情况下 \(p &gt; e\)。 当 \(n\) 和 \(m\) 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 \(n\) 和 \(m\) 很大（比">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-09-09T07:45:41.924Z">
-<meta property="article:modified_time" content="2024-09-09T07:46:26.856Z">
+<meta property="article:modified_time" content="2024-09-11T09:12:05.179Z">
 <meta property="article:author" content="Reliauk Li">
 <meta name="twitter:card" content="summary">
 
@@ -179,9 +179,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-09-09 15:45:41 / Modified: 15:46:26" itemprop="dateCreated datePublished" datetime="2024-09-09T15:45:41+08:00">2024-09-09</time>
+      <time title="Created: 2024-09-09 15:45:41" itemprop="dateCreated datePublished" datetime="2024-09-09T15:45:41+08:00">2024-09-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-09-11 17:12:05" itemprop="dateModified" datetime="2024-09-11T17:12:05+08:00">2024-09-11</time>
     </span>
 
   
@@ -193,7 +199,8 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><!-- toc -->
+    <div class="post-body" itemprop="articleBody"><h1><span id="大组合数模小质数幂">大组合数模小质数幂</span></h1>
+<!-- toc -->
 <ul>
 <li><a href="#背景">背景</a></li>
 <li><a href="#exlucas">ExLucas</a></li>

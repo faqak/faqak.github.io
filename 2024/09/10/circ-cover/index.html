@@ -19,17 +19,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="相信大家在写圆覆盖问题的时候常常使用三分套三分解决。具体来说，我们先三分圆心的 \(x\) 坐标，再三分圆心的 \(y\) 坐标，使用 \(r\) 的取值范围作为对 \(y\) 的估价，对 \(x\) 的估价则是三分 \(y\) 得到的最优估价。 这样做有什么科学道理呢？为什么是凸的？笔者曾困扰了很久，最后“感性证明”跑路，近日在一篇其他题的题解中得到启示，于是决定在下面摘抄一下其内容。  下面以">
+    <meta name="description" content="一类三分套三分在圆覆盖问题中的应用   思想 合法圆覆盖 最小圆覆盖 最大被覆盖圆   思想 通过对限制变形，给圆心 \((x, y)\) 赋合适的估价（与半径 \(r\) 相关），并证明：固定 \(x\) 时，估价是凸的；对所有 \(x\)，最优的 \(y\) 的估价也是凸的。从而外层三分 \(x\)，内层三分 \(y\) 即可 \(\mathcal O(f(n)\log^2(\dfrac{1}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="痴人说着梦 都道情之所终">
 <meta property="og:url" content="http://example.com/2024/09/10/circ-cover/index.html">
 <meta property="og:site_name" content="Reliauk&#39;s Blog">
-<meta property="og:description" content="相信大家在写圆覆盖问题的时候常常使用三分套三分解决。具体来说，我们先三分圆心的 \(x\) 坐标，再三分圆心的 \(y\) 坐标，使用 \(r\) 的取值范围作为对 \(y\) 的估价，对 \(x\) 的估价则是三分 \(y\) 得到的最优估价。 这样做有什么科学道理呢？为什么是凸的？笔者曾困扰了很久，最后“感性证明”跑路，近日在一篇其他题的题解中得到启示，于是决定在下面摘抄一下其内容。  下面以">
+<meta property="og:description" content="一类三分套三分在圆覆盖问题中的应用   思想 合法圆覆盖 最小圆覆盖 最大被覆盖圆   思想 通过对限制变形，给圆心 \((x, y)\) 赋合适的估价（与半径 \(r\) 相关），并证明：固定 \(x\) 时，估价是凸的；对所有 \(x\)，最优的 \(y\) 的估价也是凸的。从而外层三分 \(x\)，内层三分 \(y\) 即可 \(\mathcal O(f(n)\log^2(\dfrac{1}">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic.imgdb.cn/item/66e16562d9c307b7e9e2e6cf.png">
 <meta property="article:published_time" content="2024-09-10T12:00:58.802Z">
-<meta property="article:modified_time" content="2024-09-10T12:28:39.960Z">
+<meta property="article:modified_time" content="2024-09-11T09:47:27.004Z">
 <meta property="article:author" content="Reliauk Li">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.imgdb.cn/item/66e16562d9c307b7e9e2e6cf.png">
 
 
 <link rel="canonical" href="http://example.com/2024/09/10/circ-cover/">
@@ -179,9 +181,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-09-10 20:00:58 / Modified: 20:28:39" itemprop="dateCreated datePublished" datetime="2024-09-10T20:00:58+08:00">2024-09-10</time>
+      <time title="Created: 2024-09-10 20:00:58" itemprop="dateCreated datePublished" datetime="2024-09-10T20:00:58+08:00">2024-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-09-11 17:47:27" itemprop="dateModified" datetime="2024-09-11T17:47:27+08:00">2024-09-11</time>
     </span>
 
   
@@ -193,22 +201,55 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>相信大家在写圆覆盖问题的时候常常使用三分套三分解决。具体来说，我们先三分圆心的 <span class="math inline">\(x\)</span> 坐标，再三分圆心的 <span class="math inline">\(y\)</span> 坐标，使用 <span class="math inline">\(r\)</span> 的取值范围作为对 <span class="math inline">\(y\)</span> 的估价，对 <span class="math inline">\(x\)</span> 的估价则是三分 <span class="math inline">\(y\)</span> 得到的最优估价。</p>
-<p>这样做有什么科学道理呢？为什么是凸的？笔者曾困扰了很久，最后“感性证明”跑路，近日在一篇其他题的题解中得到启示，于是决定在下面摘抄一下其内容。</p>
-<hr>
-<p>下面以求出最小的 <span class="math inline">\(r\)</span> 为例说明，一些类似的估价也可以类似证明。</p>
-<p>考虑如果钦定一个点 <span class="math inline">\((a, b)\)</span> 被圆 <span class="math inline">\((x, y, r)\)</span> 覆盖，我们实际上需要满足的是：</p>
+    <div class="post-body" itemprop="articleBody"><h1><span id="一类三分套三分在圆覆盖问题中的应用">一类三分套三分在圆覆盖问题中的应用</span></h1>
+<!-- toc -->
+<ul>
+<li><a href="#思想">思想</a></li>
+<li><a href="#合法圆覆盖">合法圆覆盖</a></li>
+<li><a href="#最小圆覆盖">最小圆覆盖</a></li>
+<li><a href="#最大被覆盖圆">最大被覆盖圆</a></li>
+</ul>
+<!-- tocstop -->
+<h2><span id="思想">思想</span></h2>
+<p>通过对限制变形，给圆心 <span class="math inline">\((x, y)\)</span> 赋合适的估价（与半径 <span class="math inline">\(r\)</span> 相关），并证明：固定 <span class="math inline">\(x\)</span> 时，估价是凸的；对所有 <span class="math inline">\(x\)</span>，最优的 <span class="math inline">\(y\)</span> 的估价也是凸的。从而外层三分 <span class="math inline">\(x\)</span>，内层三分 <span class="math inline">\(y\)</span> 即可 <span class="math inline">\(\mathcal O(f(n)\log^2(\dfrac{1}{\epsilon}))\)</span> 解决。</p>
+<p>具体的分析在各种问题中是不一样的，但方向类似，下面用几道题简单说明一下。</p>
+<h2><span id="合法圆覆盖">合法圆覆盖</span></h2>
+<blockquote>
+<p>给定平面上的 <span class="math inline">\(n\)</span> 个黑点 <span class="math inline">\((a_i, b_i)\)</span>，<span class="math inline">\(m\)</span> 个白点 <span class="math inline">\((c_i, d_i)\)</span>，找到一个圆覆盖所有黑点并且不覆盖任何白点。</p>
+</blockquote>
+<p>设答案圆为 <span class="math inline">\((x, y, r)\)</span>，那么 <span class="math inline">\((a_i, b_i)\)</span> 被覆盖等价于：</p>
 <p><span class="math display">\[
-(a - x)^2 + (b - y)^2 \leq r^2
+(x - a_i)^2 + (y - b_i)^2 \leq r^2
 \]</span></p>
 <p>也就是，</p>
 <p><span class="math display">\[
-2ax + 2by + (r^2 - x^2 - y^2) -a^2-b^2\geq 0
+2a_ix + 2b_iy + (r^2 -x^2 - y^2) - a_i^2 - b_i^2 \geq 0
 \]</span></p>
-<p>这实际上是强制 <span class="math inline">\((x, y,r^2-x^2-y^2)\)</span> 在某半空间内。钦定点不被覆盖也是类似的，只有系数有差别，仍然是半空间限制的形式。</p>
-<p>因此合法的圆 <span class="math inline">\((x, y, r)\)</span> 对应的 <span class="math inline">\((x, y, r^2-x^2-y^2)\)</span> 集合实际上是由半空间交得到的，也就是一个三维凸包。</p>
-<p>从而固定 <span class="math inline">\(x\)</span> 得到的 <span class="math inline">\((y, r^2 - x^2 - y^2)\)</span> 则相当于某一平面与这个三维凸包的交，是一个二维凸包，因此内层三分的凸性是显然的。</p>
-<p>对于外层三分的 <span class="math inline">\(x = x_1\)</span>，<span class="math inline">\(x_1\)</span> 的估价是该三维凸包上 <span class="math inline">\(x = x_1\)</span> 的点中 <span class="math inline">\(z\)</span> 的最小值，这显然也是凸的。</p>
+<p>相当于强制点 <span class="math inline">\((x, y, r^2 - x^2 - y^2)\)</span> 在某半空间内。<span class="math inline">\((c_i, d_i)\)</span> 不被覆盖，式子也是类似的，同样是限制该点在某半空间内。</p>
+<p>从而，合法的 <span class="math inline">\((x, y, r^2 - x^2 - y^2)\)</span> 集合是由 <span class="math inline">\(n + m\)</span> 个半空间相交得到的，从而是一个三维凸包。</p>
+<p>我们令固定 <span class="math inline">\((x, y)\)</span> 后的估价为合法的 <span class="math inline">\(r^2 - x^2 - y^2\)</span> 的范围（显然是一个区间）的长度。此时固定 <span class="math inline">\(x\)</span> 后，<span class="math inline">\((y, r^2 - x^2 - y^2)\)</span> 是二维凸包，内层三分凸性显然。对所有的 <span class="math inline">\(x = x_1\)</span>，其最优估价也显然是凸的（可以反证，不是凸的会导出原集合不是三维凸包），从而外层的三分也是对的。</p>
+<p>二分出最大的范围后，如果该范围是非空的，我们就得到了一组合法解，否则直接报告无解即可。</p>
+<h2><span id="最小圆覆盖">最小圆覆盖</span></h2>
+<blockquote>
+<p>给定平面上的 <span class="math inline">\(n\)</span> 个点，求一个最小的圆覆盖所有点。</p>
+</blockquote>
+<p>我们仍然可以沿用上一部分的分析，但需要注意的是，我们的估价为 <span class="math inline">\(\min (r^2 - x^2 - y^2)\)</span>，这实际上和题目所要最小化的目标 <span class="math inline">\(r\)</span> 是不一样的。</p>
+<p>但好在，我们的估价实际上是 <span class="math inline">\(\min z\)</span>，所以我们只关心这个三维凸包的下凸壳。而对所有点 <span class="math inline">\(z \gets z + x^2 + y^2\)</span> 这个操作，由于 <span class="math inline">\(f(x) = x^2\)</span> 也是下凸的，那么原先的下凸壳在这次操作后仍然能够保持凸性。</p>
+<p>因此，我们把估价修改为 <span class="math inline">\(\min r\)</span> 即可得到正确的做法。</p>
+<h2><span id="最大被覆盖圆">最大被覆盖圆</span></h2>
+<blockquote>
+<p>给定平面上 <span class="math inline">\(n\)</span> 个<strong>圆</strong>，找到一个最大的圆被这 <span class="math inline">\(n\)</span> 个圆的交覆盖。</p>
+</blockquote>
+<p>假设给定的圆是 <span class="math inline">\((a_i, b_i, c_i)\)</span>，答案圆是 <span class="math inline">\((x, y, r)\)</span>，我们需要满足：</p>
+<ul>
+<li><span class="math inline">\(r \leq c_i\)</span>（这一部分很重要，否则变形不充要，我们也难以得到下面的优美结论）</li>
+<li><span class="math inline">\((a_i - x)^2 + (b_i - y)^2 \leq (c_i - r)^2\)</span></li>
+</ul>
+<p>这实际上是对于 <span class="math inline">\((x, y, r)\)</span> 这个点，钦定它在某圆锥内。</p>
+<p><img src="https://pic.imgdb.cn/item/66e16562d9c307b7e9e2e6cf.png"></p>
+<p>（注意由于 <span class="math inline">\(r \leq c_i\)</span>，实际上合法集合取的是下面那个圆锥，而非图中全部的红色区域）</p>
+<p>圆锥是凸的，从而考虑所有限制后，合法的 <span class="math inline">\((x, y, r)\)</span> 是三维凸包。</p>
+<p>这里的估价函数就是 <span class="math inline">\(\max r\)</span>，因此内外层的凸性是有的（证明同“合法圆覆盖”），从而三分套三分能够正确地求出最大的合法圆。</p>
 
     </div>
 
