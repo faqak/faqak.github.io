@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://en.algorithmica.org/misc/binom-mod-pe/</loc>
+    <loc>https://faqak.github.io/misc/binom-mod-pe/</loc>
   </url><url>
-    <loc>https://en.algorithmica.org/misc/circ-cover/</loc>
+    <loc>https://faqak.github.io/misc/circ-cover/</loc>
   </url><url>
-    <loc>https://en.algorithmica.org/misc/avoid-pattern-rdl/</loc>
+    <loc>https://faqak.github.io/misc/avoid-pattern-rdl/</loc>
   </url><url>
-    <loc>https://en.algorithmica.org/categories/</loc>
+    <loc>https://faqak.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-ru"
@@ -17,12 +17,12 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://en.algorithmica.org/categories/"
+                href="https://faqak.github.io/categories/"
                 />
   </url><url>
-    <loc>https://en.algorithmica.org/misc/</loc>
+    <loc>https://faqak.github.io/misc/</loc>
   </url><url>
-    <loc>https://en.algorithmica.org/</loc>
+    <loc>https://faqak.github.io/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-ru"
@@ -31,10 +31,10 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://en.algorithmica.org/"
+                href="https://faqak.github.io/"
                 />
   </url><url>
-    <loc>https://en.algorithmica.org/tags/</loc>
+    <loc>https://faqak.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru-ru"
@@ -43,7 +43,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="https://en.algorithmica.org/tags/"
+                href="https://faqak.github.io/tags/"
                 />
   </url>
 </urlset>
