@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang='en-us'><head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WBN59M8Y5S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-WBN59M8Y5S');
+</script>
+
+
+<script type="text/javascript">
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(53961409, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/53961409" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<meta charset="utf-8">
+
+  
+  <link rel="stylesheet" href="/style.min.a3a4a7a8e8602aaa85b7cb3d655edde028ac80d73f2a97389e2cbcf995dd672d.css" integrity="sha256-o6SnqOhgKqqFt8s9ZV7d4CisgNc/Kpc4niy8&#43;ZXdZy0=">
+  <link rel="stylesheet" href="/syntax.css" id="syntax-theme">
+
+  <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+  <script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js"></script>
+  <script src="/scripts/lunr.stemmer.support.min.js"></script>
+  <script src="/scripts/lunr.ru.min.js"></script>
+  <script src="/scripts/lunr.multi.min.js"></script>
+
+  
+  <link rel="stylesheet" id="theme">
+
+  <script>
+    function toggleSidebar() {
+      console.log("Toggling sidebar visibility")
+      var sidebar = document.getElementById('sidebar')
+      var wrapper = document.getElementById('wrapper')
+      if (sidebar.classList.contains('sidebar-toggled') || window.getComputedStyle(sidebar).display == 'block') { 
+        sidebar.classList.toggle('sidebar-hidden')
+        wrapper.classList.toggle('sidebar-hidden')
+      }
+      sidebar.classList.add('sidebar-toggled')
+      wrapper.classList.add('sidebar-toggled')
+    }
+
+    function switchTheme(theme) {
+      console.log("Changing theme:", theme)
+      document.getElementById('theme').href = (theme == 'dark' ? "\/dark.min.b3ae1169831434b11b48de5b3e3210547eea6b7884c295ab0030cb973ea0dc49.css" : "")
+      document.getElementById('syntax-theme').href = (theme == 'dark' ? '/syntax-dark.css' : '/syntax.css')
+      localStorage.setItem('theme', theme)
+    }
+
+    async function toggleSearch() {
+      console.log("Toggling search")
+      
+      var searchDiv = document.getElementById('search')
+      if (window.getComputedStyle(searchDiv).display == 'none') {
+        searchDiv.style.display = 'block'
+        window.scrollTo({ top: 0 });
+        document.getElementById('search-bar').focus()
+      } else {
+        searchDiv.style.display = 'none'  
+      }
+
+      if (!index) {
+        console.log("Fetching index")
+        const response = await fetch('/searchindex.json')
+        const pages = await response.json()
+        index = lunr(function() {
+          this.use(lunr.multiLanguage('en', 'ru'))
+          this.field('title', {
+            boost: 5
+          })
+          this.field('content', {
+            boost: 1
+          })
+          pages.forEach(function(doc) {
+            this.add(doc)
+            articles.push(doc)
+          }, this)
+        })
+        console.log("Ready to search")
+      }
+    }
+
+    var articles = []
+    var index = undefined
+
+    function search() {
+      var query = document.getElementById('search-bar').value
+      var resultsDiv = document.getElementById('search-results')
+      var countDiv = document.getElementById('search-count')
+      
+      if (query == '') {
+        resultsDiv.innerHTML = ''
+        countDiv.innerHTML = ''
+        return
+      }
+      
+      var results = index.search(query)
+
+      countDiv.innerHTML = 'Found <b>' + results.length + '</b> pages'
+
+      let resultList = ''
+
+      for (const n in results) {
+        const item = articles[results[n].ref]
+        resultList += '<li><a href="' + item.path + '">' + item.title + '</a> <p>'
+        const text = item.content
+
+        const contextLimit = 80
+
+        if (text.includes(query)) {
+          const start = text.indexOf(query)
+          if (start > contextLimit)
+            resultList += '…'
+          resultList += text.substring(start - contextLimit, start)
+                      + '<b>' + query + '</b>' + text.substring(start + query.length, start + query.length + contextLimit)
+
+        } else {
+          resultList += text.substring(0, contextLimit * 2)
+        }
+        resultList += '…</p></li>'
+      }
+
+      resultsDiv.innerHTML = resultList
+    }
+
+    if (localStorage.getItem('theme') == 'dark') {
+      switchTheme('dark')
+    }
+
+    window.addEventListener('load', function() {
+      var el = document.getElementById("active-element")
+      
+      if (el) {
+        el.scrollIntoView({block: "center"})
+      }
+      
+
+    })
+
+    window.addEventListener('scroll', function() {
+      var menu = document.getElementById('menu')
+      if (window.scrollY < 120) {
+        
+        menu.classList.remove('scrolled')
+      } else {
+        
+        menu.classList.add('scrolled')
+      }
+    })
+
+    window.addEventListener('keydown', function(e) {
+      if (e.altKey) { return }
+      if (document.activeElement.tagName == 'INPUT') { return }
+      if (e.key == 'ArrowLeft') {
+        document.getElementById('prev-article').click()
+      } else if (e.key == 'ArrowRight') {
+        document.getElementById('next-article').click()
+      }
+    })
+  </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ]
+  })"></script>
+
+  
+  <title>避免 Pattern 的 RDL 计数 - Reliauk</title>
+</head>
+<body><nav id='sidebar' >
+  
+  
+  <div class='title'>
+    <a href='/'>Reliauk</a>
+    
+      
+        
+        <span class='slash'>/</span>
+        <a href='/misc/' class='divisionAbbr'
+            >
+          Misc
+        </a>
+      
+    
+      
+    
+  </div>
+  <ul>
+    
+      
+        
+        <li class=' '><a href='/misc/binom-mod-pe/'
+          
+          >大组合数模小质数幂</a></li>
+        
+      
+        
+        <li class=' '><a href='/misc/circ-cover/'
+          
+          >一类三分套三分在圆覆盖问题中的应用</a></li>
+        
+      
+        
+        <li class=' '><a href='/misc/avoid-pattern-rdl/'
+          id='active-element'
+          >避免 Pattern 的 RDL 计数</a></li>
+        
+      
+    
+  </ul>
+</nav>
+<div id='wrapper' ><menu id='menu'>
+  
+  
+  <div class='left'>
+    <a>
+      <img src='/icons/bars-solid.svg'
+           onclick='toggleSidebar()'
+           title='open table of contents'>
+    </a>
+    <a>
+      <img src='/icons/adjust-solid.svg'
+           style='position: relative; top: -1px'
+           onclick='switchTheme(localStorage.getItem("theme") == "dark" ? "light" : "dark")'
+           title='dark theme'>
+    </a>
+    <a>
+      <img src='/icons/search-solid.svg'
+           onclick='toggleSearch()'
+           title='search'>
+    </a>
+  </div>
+  <div class='title'>避免 Pattern 的 RDL 计数</div>
+  <div class='right'>
+    <a onClick='window.print()'>
+      <img src='/icons/print-solid.svg' title='print'>
+    </a>
+  </div>
+</menu>
+<main>
+        <div id="search">
+    <input id="search-bar" type="search" placeholder='Search this book…' oninput="search()">
+    <div id="search-count"></div>
+    <div id="search-results">
+    </div>
+</div>
+<header>
+  
+  <h1>避免 Pattern 的 RDL 计数</h1>
+  
+    <div class='info'></div>
+  
+</header>
+<article>
+
+
+
+  
+    
+    
+      
+        <p>搬运自 <a href="https://www.valpo.edu/mathematics-statistics/files/2014/09/Pudwell2015.pdf">Pattern Avoidance in Reverse Double Lists</a>。</p>
+<span class='anchor' id="定义"></span>
+<h2><a class="anchor-link" href="https://en.algorithmica.org/misc/avoid-pattern-rdl/#%e5%ae%9a%e4%b9%89">#</a>定义</h2><p>RDL（Reverse Double List） 是把一个排列的反串拼接在它的后面得到的结构。</p>
+<ul>
+<li>具体来说，记长为 $2n$ 的 RDL 构成的集合为 $\mathcal{R}_n$，那么有 $\mathcal R_n = {\pi\pi^{\textsf{R}}\mid\pi \in \mathcal S_n}$，其中 $\mathcal S_n$ 是所有 $n$ 阶排列构成的集合。</li>
+</ul>
+<p>避免 Pattern 的 RDL 计数是这样一个问题：</p>
+<ul>
+<li>给定我们称之为 Pattern 的一个排列 $\rho$。</li>
+<li>考虑满足如下条件的 $n$ 阶 RDL：
+<ul>
+<li>不存在大小为 $\lvert \rho \rvert$ 的子序列，满足其中元素的相对大小顺序和 $\rho$ 相等。</li>
+</ul>
+</li>
+<li>满足该条件的 $n$ 阶 RDL 集合被记作 $\mathcal R_n(\rho)$，我们要求的即 $\lvert \mathcal R_n(\rho)\rvert$。</li>
+</ul>
+<p>事实上，对于 $\lvert \rho \rvert \leq 4$ 的情形，我们有足够快速简单的方法计算 $\lvert \mathcal R_n(\rho)\rvert$。</p>
+<p>由于篇幅有限，下文中的结论并不会给出证明，详细证明可见原论文。</p>
+<span class='anchor' id="lvertrhorvert-leq-3"></span>
+<h2><a class="anchor-link" href="https://en.algorithmica.org/misc/avoid-pattern-rdl/#lvertrhorvert-leq-3">#</a>$\lvert\rho\rvert \leq 3$</h2>
+      
+    
+  
+
+  
+    $$
+    
+\begin{aligned}
+&\lvert\mathcal R_n(\langle1\rangle)\rvert = 0\\
+&\lvert\mathcal R_n(\langle1, 2\rangle)\rvert = \lvert\mathcal R_n(\langle2, 1\rangle)\rvert = 
+\begin{cases}
+1 & n = 1\\
+0 & n \geq 2
+\end{cases}\\
+&\lvert\mathcal R_n(\langle1, 2, 3\rangle)\rvert = \lvert\mathcal R_n(\langle3, 2, 1\rangle)\rvert = 
+\begin{cases}
+1 & n = 1\\
+2 & n = 2, 3\\
+0 & n \geq 4
+\end{cases}\\
+&\lvert\mathcal R_n(\langle1, 3, 2\rangle)\rvert = \lvert\mathcal R_n(\langle2, 3, 1\rangle)\rvert= \lvert\mathcal R_n(\langle3, 1, 2\rangle)\rvert= \lvert\mathcal R_n(\langle2, 1, 3\rangle)\rvert = 
+\begin{cases}
+1 & n = 1\\
+2 & n \geq 2
+\end{cases}
+\end{aligned}
+
+    $$
+  
+
+  
+    
+    
+      
+        <p>这一部分的 $\lvert \mathcal R_n(\rho)\rvert$ 都可以被 $\mathcal O(1)$ 计算。</p>
+<span class='anchor' id="lvert-rho-rvert--4"></span>
+<h2><a class="anchor-link" href="https://en.algorithmica.org/misc/avoid-pattern-rdl/#lvert-rho-rvert--4">#</a>$\lvert \rho \rvert = 4$</h2><p>这一部分当 $n$ 较小时，$\lvert\mathcal R_n(\rho)\rvert$ 并没有很好的性质，不过我们可以用 $\mathcal O(n! \cdot \text{poly}(n))$ 的暴力求解。</p>
+<p>下表中的式子都是 $n$ 较大时成立的（式子后面标注了成立的范围）。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Pattern $\rho$</th>
+          <th style="text-align: center">$\lvert\mathcal R_n(\rho)\rvert=$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">$\langle1,2,3,4\rangle, \langle4,3,2,1\rangle$</td>
+          <td style="text-align: center">$0\qquad(n \geq 7)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\langle1,2,4,3\rangle, \langle2,1,3,4\rangle, \langle3,4,2,1\rangle, \langle4,3,1,2\rangle$</td>
+          <td style="text-align: center">$\dfrac{n^3}3-\dfrac{7n}3+4\qquad(n \geq 3)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\langle1,3,2,4\rangle, \langle4,2,3,1\rangle, \langle2,1,4,3\rangle, \langle3,4,1,2\rangle$</td>
+          <td style="text-align: center">$2\lvert\mathcal R_{n−1}(\rho)\rvert + 4\qquad(n \geq 4)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\langle1,4,2,3\rangle, \langle2,3,1,4\rangle, \langle3,2,4,1\rangle, \langle4,1,3,2\rangle$</td>
+          <td style="text-align: center">$2\lvert\mathcal R_{n−1}(\rho)\rvert + \lvert\mathcal R_{n−3}(\rho)\rvert + 2\qquad(n \geq 5)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\langle1,4,3,2\rangle, \langle2,3,4,1\rangle, \langle3,2,1,4\rangle, \langle4,1,2,3\rangle$</td>
+          <td style="text-align: center">$2\lvert\mathcal R_{n−1}(\rho)\rvert + \lvert\mathcal R_{n−2}(\rho)\rvert\qquad(n \geq 5)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\langle1,3,4,2\rangle, \langle2,4,3,1\rangle, \langle3,1,2,4\rangle, \langle4,2,1,3\rangle$</td>
+          <td style="text-align: center">$2\lvert\mathcal R_{n−1}(\rho)\rvert + \lvert\mathcal R_{n−2}(\rho)\rvert + 2\qquad(n \geq 4)$</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">$\langle2,4,1,3\rangle, \langle3,1,4,2\rangle$</td>
+          <td style="text-align: center">$2\lvert\mathcal R_{n−1}(\rho)\rvert + 2\lvert\mathcal R_{n−2}(\rho)\rvert\qquad(n \geq 3)$</td>
+      </tr>
+  </tbody>
+</table>
+<p>对于第一、二行的式子，它们已经是封闭的形式了，我们可以直接 $\mathcal O(1)$ 计算。</p>
+<p>其余的式子都是低阶线性递推，可以使用矩阵快速幂 $\mathcal O(\log n)$ 计算。</p>
+<span class='anchor' id="总结"></span>
+<h2><a class="anchor-link" href="https://en.algorithmica.org/misc/avoid-pattern-rdl/#%e6%80%bb%e7%bb%93">#</a>总结</h2><p>综上，对于所有的 $\lvert \rho \rvert \leq 4$，我们都可以以 $\mathcal O(1)$ 或 $\mathcal O(\log n)$ 的时间复杂度计算 $\lvert\mathcal R_n(\rho)\rvert$。</p>
+<p>实际使用中，上面的式子不需要记住，只需要把 $n$ 较小的表打出来，去除前面不满足式子的 $\mathcal O(1)$ 项，再作差分或高消系数得到式子即可。注意高消时要考虑这个递推式有常数项。</p>
+
+      
+    
+  
+
+
+
+        </article>
+        <div class='nextprev'>
+  
+    
+      
+      
+
+      
+      
+      
+        
+      
+        
+      
+        
+          
+        
+      
+
+      
+        <div class='left'>
+        
+          <a href='https://en.algorithmica.org/misc/circ-cover/' id='prev-article'>← 一类三分套三分在圆覆盖问题中的应用</a>
+        
+        </div>
+        <div class='right'>
+        
+          
+          
+          
+
+          
+            
+              
+            
+          
+        
+          
+        
+        </div>
+      
+    
+  
+</div>
+
+      </main>
+      <footer>
+  Copyright 2021–2022 Sergey Slotin
+  <br>
+   
+</footer>
+
+    </div>
+  </body>
+</html>
