@@ -2,8 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://en.algorithmica.org/misc/</loc>
-  </url><url>
     <loc>https://en.algorithmica.org/misc/binom-mod-pe/</loc>
   </url><url>
     <loc>https://en.algorithmica.org/misc/circ-cover/</loc>
@@ -21,6 +19,8 @@
                 hreflang="en-us"
                 href="https://en.algorithmica.org/categories/"
                 />
+  </url><url>
+    <loc>https://en.algorithmica.org/misc/</loc>
   </url><url>
     <loc>https://en.algorithmica.org/</loc>
     <xhtml:link
