@@ -26,7 +26,7 @@
 <meta charset="utf-8">
 
   
-  <link rel="stylesheet" href="/style.min.3bb24b3b4c7d47c04cfba9fde71609a651afd890f22330452f6da9f8c33fe12f.css" integrity="sha256-O7JLO0x9R8BM&#43;6n95xYJplGv2JDyIzBFL22p&#43;MM/4S8=">
+  <link rel="stylesheet" href="/style.min.47483eab3fc85448392374d271d57678e78aae77972eed489d26e799ec63a5aa.css" integrity="sha256-R0g&#43;qz/IVEg5I3TScdV2eOeKrneXLu1InSbnmexjpao=">
   <link rel="stylesheet" href="/syntax.css" id="syntax-theme">
 
   <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
@@ -55,7 +55,7 @@
 
     function switchTheme(theme) {
       console.log("Changing theme:", theme)
-      document.getElementById('theme').href = (theme == 'dark' ? "\/dark.min.a0baa90403d3005ad81837ce29c3374d4b31f3e9a5bf0981bc0e73e6336d0b4e.css" : "")
+      document.getElementById('theme').href = (theme == 'dark' ? "\/dark.min.3a683d80177c03c9d481a68b053b287d9ee2df38fc35b03a965e1ba4514c26a5.css" : "")
       document.getElementById('syntax-theme').href = (theme == 'dark' ? '/syntax-dark.css' : '/syntax.css')
       localStorage.setItem('theme', theme)
     }
@@ -279,7 +279,7 @@
 <span class='anchor' id="定义"></span>
 <h2><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#%e5%ae%9a%e4%b9%89">#</a>定义</h2><p>RDL（Reverse Double List） 是把一个排列的反串拼接在它的后面得到的结构。</p>
 <ul>
-<li>具体来说，记长为 $2n$ 的 RDL 构成的集合为 $\mathcal{R}_n$，那么有 $\mathcal R_n = {\pi\pi^{\textsf{R}}\mid\pi \in \mathcal S_n}$，其中 $\mathcal S_n$ 是所有 $n$ 阶排列构成的集合。</li>
+<li>具体来说，记长为 $2n$ 的 RDL 构成的集合为 $\mathcal{R}_n$，那么有 $\mathcal R_n = \{ \pi\pi^{\textsf{R}}\mid\pi \in \mathcal S_n \}$，其中 $\mathcal S_n$ 是所有 $n$ 阶排列构成的集合。</li>
 </ul>
 <p>避免 Pattern 的 RDL 计数是这样一个问题：</p>
 <ul>
