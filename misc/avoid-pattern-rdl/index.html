@@ -277,7 +277,7 @@
       
         <p>搬运自 <a href="https://www.valpo.edu/mathematics-statistics/files/2014/09/Pudwell2015.pdf">Pattern Avoidance in Reverse Double Lists</a>。</p>
 <span class='anchor' id="定义"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#%e5%ae%9a%e4%b9%89">#</a>定义</h2><p>RDL（Reverse Double List） 是把一个排列的反串拼接在它的后面得到的结构。</p>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#%e5%ae%9a%e4%b9%89">#</a>定义</h3><p>RDL（Reverse Double List） 是把一个排列的反串拼接在它的后面得到的结构。</p>
 <ul>
 <li>具体来说，记长为 $2n$ 的 RDL 构成的集合为 $\mathcal{R}_n$，那么有 $\mathcal R_n = \{ \pi\pi^{\textsf{R}}\mid\pi \in \mathcal S_n \}$，其中 $\mathcal S_n$ 是所有 $n$ 阶排列构成的集合。</li>
 </ul>
@@ -294,7 +294,7 @@
 <p>事实上，对于 $\lvert \rho \rvert \leq 4$ 的情形，我们有足够快速简单的方法计算 $\lvert \mathcal R_n(\rho)\rvert$。</p>
 <p>由于篇幅有限，下文中的结论并不会给出证明，详细证明可见原论文。</p>
 <span class='anchor' id="lvertrhorvert-leq-3"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#lvertrhorvert-leq-3">#</a>$\lvert\rho\rvert \leq 3$</h2>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#lvertrhorvert-leq-3">#</a>$\lvert\rho\rvert \leq 3$</h3>
       
     
   
@@ -331,7 +331,7 @@
       
         <p>这一部分的 $\lvert \mathcal R_n(\rho)\rvert$ 都可以被 $\mathcal O(1)$ 计算。</p>
 <span class='anchor' id="lvert-rho-rvert--4"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#lvert-rho-rvert--4">#</a>$\lvert \rho \rvert = 4$</h2><p>这一部分当 $n$ 较小时，$\lvert\mathcal R_n(\rho)\rvert$ 并没有很好的性质，不过我们可以用 $\mathcal O(n! \cdot \text{poly}(n))$ 的暴力求解。</p>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#lvert-rho-rvert--4">#</a>$\lvert \rho \rvert = 4$</h3><p>这一部分当 $n$ 较小时，$\lvert\mathcal R_n(\rho)\rvert$ 并没有很好的性质，不过我们可以用 $\mathcal O(n! \cdot \text{poly}(n))$ 的暴力求解。</p>
 <p>下表中的式子都是 $n$ 较大时成立的（式子后面标注了成立的范围）。</p>
 <table>
   <thead>
@@ -374,7 +374,7 @@
 <p>对于第一、二行的式子，它们已经是封闭的形式了，我们可以直接 $\mathcal O(1)$ 计算。</p>
 <p>其余的式子都是低阶线性递推，可以使用矩阵快速幂 $\mathcal O(\log n)$ 计算。</p>
 <span class='anchor' id="总结"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#%e6%80%bb%e7%bb%93">#</a>总结</h2><p>综上，对于所有的 $\lvert \rho \rvert \leq 4$，我们都可以以 $\mathcal O(1)$ 或 $\mathcal O(\log n)$ 的时间复杂度计算 $\lvert\mathcal R_n(\rho)\rvert$。</p>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/avoid-pattern-rdl/#%e6%80%bb%e7%bb%93">#</a>总结</h3><p>综上，对于所有的 $\lvert \rho \rvert \leq 4$，我们都可以以 $\mathcal O(1)$ 或 $\mathcal O(\log n)$ 的时间复杂度计算 $\lvert\mathcal R_n(\rho)\rvert$。</p>
 <p>实际使用中，上面的式子不需要记住，只需要把 $n$ 较小的表打出来，去除前面不满足式子的 $\mathcal O(1)$ 项，再作差分或高消系数得到式子即可。注意高消时要考虑这个递推式有常数项。</p>
 
       
