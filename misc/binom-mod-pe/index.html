@@ -276,8 +276,8 @@
     
       
         <span class='anchor' id="背景"></span>
-<h3><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#%e8%83%8c%e6%99%af">#</a>背景</h3><p>我们想求解的是这样一类问题：固定模数 $p^e$，多次查询 $\binom nm \bmod p^e$，默认一般情况下 $p &gt; e$。</p>
-<p>当 $n$ 和 $m$ 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 $n$ 和 $m$ 很大（比如 $10^{18}$ 量级）时该问题是否有很好的解法。下面将介绍该问题的一种方向。</p>
+<h2><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#%e8%83%8c%e6%99%af">#</a>背景</h2><p>我们想求解的是这样一类问题：固定模数 $p^e$，多次查询 $\binom nm \bmod p^e$，默认一般情况下 $p &gt; e$。</p>
+<p>当 $n$ 和 $m$ 比较小的时候，预处理阶乘数组可以很好地解决问题。因此我们主要关心的是当 $n$ 和 $m$ 很大（比如 $10^{18}$ 量级）时该问题是否有很好的解法。下面介绍该问题的一种方向。</p>
 <p>我们很容易 $\mathcal O(\log n)$ 计算出 $n!$ 中含有的 $p$ 因子数量 $(n!)_p = \sum _{k\geq 1} \lfloor\frac{n}{p^k}\rfloor$。那么有</p>
 
       
@@ -316,7 +316,7 @@
         <p>因此这个方向的核心在于计算 $F$，如果我们能够以 $\mathcal O(t)$ 单次的时间复杂度回答 $F$，那么问题就可以以 $\mathcal O(t \log n)$ 的时间复杂度被解决。</p>
 <p>下面将介绍几种常见的计算 $F$ 的方法。</p>
 <span class='anchor' id="exlucas"></span>
-<h3><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#exlucas">#</a>ExLucas</h3>
+<h2><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#exlucas">#</a>ExLucas</h2>
       
     
   
@@ -338,7 +338,7 @@ F(n) &= \prod_{i=1, i\perp p}^n i\\
       
         <p>枚举就好了！时间复杂度 $\mathcal O(p^e)$。</p>
 <span class='anchor' id="少项式平移"></span>
-<h3><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#%e5%b0%91%e9%a1%b9%e5%bc%8f%e5%b9%b3%e7%a7%bb">#</a>少项式平移</h3><p>相关题目：「2018 集训队互测 Day 1」完美的集合，那题是模 $5^{23}$。</p>
+<h2><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#%e5%b0%91%e9%a1%b9%e5%bc%8f%e5%b9%b3%e7%a7%bb">#</a>少项式平移</h2><p>相关题目：「2018 集训队互测 Day 1」完美的集合，那题是模 $5^{23}$。</p>
 <p>考虑设计多项式 $\displaystyle G_n(x) = \prod_{i=1, i\perp p}^n(x + i)$，我们要求的 $F(n)$ 即为 $G_n(0)$。</p>
 <p>考虑从 $G_p(x)$ 开始，倍增得到 $G_{\lfloor \frac{n}{p} \rfloor p}(x)$，再暴力乘 $n \bmod p$ 个 $(x + i)$。</p>
 <p>若要倍增，则需要解决 $G_{ap} \to G_{2ap}$ 和 $G_{ap} \to G_{(a + 1)p}$ 的问题。</p>
@@ -350,7 +350,7 @@ F(n) &= \prod_{i=1, i\perp p}^n i\\
 <p>每次 $ap \to 2ap$ 或 $ap \to (a + 1)p$ 所需的时间是 $\mathcal O(e^2)$，故回答 $F$ 的时间复杂度为 $\mathcal O(e^2\log n)$。</p>
 <p>注意我们要预处理 $G_0 \sim G_p$ 的系数，不仅为了求一开始的 $G_p$，还为了最后的暴力乘不用真的乘 $n \bmod p = \mathcal O(p)$ 次，而是直接乘 $G_{n \bmod p}(x + \lfloor \frac np\rfloor p)$。预处理的时间复杂度是 $\mathcal O(pe)$ 的。</p>
 <span class='anchor' id="min_25-binom"></span>
-<h3><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#min_25-binom">#</a>min_25 binom</h3><p>考虑让 $n$ 对 $p$ 做带余除法，假设得到 $n = up + v$。我们有：</p>
+<h2><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#min_25-binom">#</a>min_25 binom</h2><p>考虑让 $n$ 对 $p$ 做带余除法，假设得到 $n = up + v$。我们有：</p>
 
       
     
@@ -472,12 +472,12 @@ f_e(p, u) &= \exp(\sum_{k \geq 1}b_ks_k(u)p^k)\\
 <p>因此，根据已经预处理好的第一类斯特林数，可以 $\mathcal O(e^2)$ 预处理出 $f_e(p, 0), f_e(p, 1), \cdots, f_e(p, 2e-2)$。然后即可在回答询问时 $\mathcal O(e)$ 拉插出 $f_e(p, u)$。</p>
 <p>综上，使用这种方法求解 $F$，可以做到 $\mathcal O(pe)$ 预处理，$\mathcal O(e)$ 回答 $F$。</p>
 <span class='anchor' id="ex-少项式平移"></span>
-<h3><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#ex-%e5%b0%91%e9%a1%b9%e5%bc%8f%e5%b9%b3%e7%a7%bb">#</a>ex 少项式平移</h3><p>考虑平衡『少项式平移』中预处理和询问的复杂度。</p>
+<h2><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#ex-%e5%b0%91%e9%a1%b9%e5%bc%8f%e5%b9%b3%e7%a7%bb">#</a>ex 少项式平移</h2><p>考虑平衡『少项式平移』中预处理和询问的复杂度。</p>
 <p>具体来说，我们可以直接对 $0 \leq i \leq 7, 1 \leq j &lt; 256$ 预处理 $G_{256^i \cdot j \cdot p}$，每次回答拿出要用的多项式以后，就不需要用二项式定理平移它们并乘起来了。可以分别算出需要代入的 $x$ 并求点值，最后乘起来。回答 $F$ 的时间复杂度优化至 $\mathcal O(e \log_{256} n)$。</p>
 <p>在 OI 常见的数据范围中（如 $n, k \leq 10^{18}$），这个 $\log_{256} n$ 实际上是快于 min_25 binom 做法中隐含的常数的。</p>
 <p>作者用 <a href="https://vjudge.net/problem/HackerRank-euler242">Project Euler #242: Odd Triplets</a> 测试了『min_25 binom』和『ex 少项式平移』的效率，在本地的最大运行速度分别为 1.8s 和 0.9s。</p>
 <span class='anchor' id="代码"></span>
-<h3><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#%e4%bb%a3%e7%a0%81">#</a>代码</h3><p>这是一份可以通过 <a href="https://vjudge.net/problem/HackerRank-euler242">Project Euler #242: Odd Triplets</a> 的代码。</p>
+<h2><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#%e4%bb%a3%e7%a0%81">#</a>代码</h2><p>这是一份可以通过 <a href="https://vjudge.net/problem/HackerRank-euler242">Project Euler #242: Odd Triplets</a> 的代码。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;bits/extc++.h&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#define ALL(v) begin(v), end(v)
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span>
