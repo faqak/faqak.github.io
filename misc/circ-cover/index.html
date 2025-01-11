@@ -26,7 +26,7 @@
 <meta charset="utf-8">
 
   
-  <link rel="stylesheet" href="/style.min.47483eab3fc85448392374d271d57678e78aae77972eed489d26e799ec63a5aa.css" integrity="sha256-R0g&#43;qz/IVEg5I3TScdV2eOeKrneXLu1InSbnmexjpao=">
+  <link rel="stylesheet" href="/style.min.9e8f939f3a689994e79e89685e1c0489759cf854059112921a595cde124f929a.css" integrity="sha256-no&#43;TnzpomZTnnoloXhwEiXWc&#43;FQFkRKSGllc3hJPkpo=">
   <link rel="stylesheet" href="/syntax.css" id="syntax-theme">
 
   <link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
@@ -55,7 +55,7 @@
 
     function switchTheme(theme) {
       console.log("Changing theme:", theme)
-      document.getElementById('theme').href = (theme == 'dark' ? "\/dark.min.3a683d80177c03c9d481a68b053b287d9ee2df38fc35b03a965e1ba4514c26a5.css" : "")
+      document.getElementById('theme').href = (theme == 'dark' ? "\/dark.min.f71a99c0daa8db12c3a054fe91f1e67b488727d2a06361be23f8f51f5c386f82.css" : "")
       document.getElementById('syntax-theme').href = (theme == 'dark' ? '/syntax-dark.css' : '/syntax.css')
       localStorage.setItem('theme', theme)
     }
@@ -276,10 +276,10 @@
     
       
         <span class='anchor' id="思想"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%80%9d%e6%83%b3">#</a>思想</h2><p>通过对限制变形，给圆心 $(x, y)$ 赋合适的估价（与半径 $r$ 相关），并证明：固定 $x$ 时，估价是凸的；对所有 $x$，最优的 $y$ 的估价也是凸的。从而外层三分 $x$，内层三分 $y$ 即可 $\mathcal O(f(n)\log^2(\dfrac{1}{\epsilon}))$ 解决。</p>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%80%9d%e6%83%b3">#</a>思想</h3><p>通过对限制变形，给圆心 $(x, y)$ 赋合适的估价（与半径 $r$ 相关），并证明：固定 $x$ 时，估价是凸的；对所有 $x$，最优的 $y$ 的估价也是凸的。从而外层三分 $x$，内层三分 $y$ 即可 $\mathcal O(f(n)\log^2(\dfrac{1}{\epsilon}))$ 解决。</p>
 <p>具体的分析在各种问题中是不一样的，但方向类似，下面用几道题简单说明一下。</p>
 <span class='anchor' id="合法圆覆盖"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e5%90%88%e6%b3%95%e5%9c%86%e8%a6%86%e7%9b%96">#</a>合法圆覆盖</h2><blockquote>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e5%90%88%e6%b3%95%e5%9c%86%e8%a6%86%e7%9b%96">#</a>合法圆覆盖</h3><blockquote>
 <p>给定平面上的 $n$ 个黑点 $(a_i, b_i)$，$m$ 个白点 $(c_i, d_i)$，找到一个圆覆盖所有黑点并且不覆盖任何白点。</p>
 </blockquote>
 <p>设答案圆为 $(x, y, r)$，那么 $(a_i, b_i)$ 被覆盖等价于：</p>
@@ -322,14 +322,14 @@
 <p>我们令固定 $(x, y)$ 后的估价为合法的 $r^2 - x^2 - y^2$ 的范围（显然是一个区间）的长度。此时固定 $x$ 后，$(y, r^2 - x^2 - y^2)$ 是二维凸包，内层三分凸性显然。对所有的 $x = x_1$，其最优估价也显然是凸的（可以反证，不是凸的会导出原集合不是三维凸包），从而外层的三分也是对的。</p>
 <p>二分出最大的范围后，如果该范围是非空的，我们就得到了一组合法解，否则直接报告无解即可。</p>
 <span class='anchor' id="最小圆覆盖"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%9c%80%e5%b0%8f%e5%9c%86%e8%a6%86%e7%9b%96">#</a>最小圆覆盖</h2><blockquote>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%9c%80%e5%b0%8f%e5%9c%86%e8%a6%86%e7%9b%96">#</a>最小圆覆盖</h3><blockquote>
 <p>给定平面上的 $n$ 个点，求一个最小的圆覆盖所有点。</p>
 </blockquote>
 <p>我们仍然可以沿用上一部分的分析，但需要注意的是，我们的估价为 $\min (r^2 - x^2 - y^2)$，这实际上和题目所要最小化的目标 $r$ 是不一样的。</p>
 <p>但好在，我们的估价实际上是 $\min z$，所以我们只关心这个三维凸包的下凸壳。而对所有点 $z \gets z + x^2 + y^2$ 这个操作，由于 $f(x) = x^2$ 也是下凸的，那么原先的下凸壳在这次操作后仍然能够保持凸性。</p>
 <p>因此，我们把估价修改为 $\min r$ 即可得到正确的做法。</p>
 <span class='anchor' id="最大被覆盖圆"></span>
-<h2><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%9c%80%e5%a4%a7%e8%a2%ab%e8%a6%86%e7%9b%96%e5%9c%86">#</a>最大被覆盖圆</h2><blockquote>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%9c%80%e5%a4%a7%e8%a2%ab%e8%a6%86%e7%9b%96%e5%9c%86">#</a>最大被覆盖圆</h3><blockquote>
 <p>给定平面上 $n$ 个<strong>圆</strong>，找到一个最大的圆被这 $n$ 个圆的交覆盖。</p>
 </blockquote>
 <p>假设给定的圆是 $(a_i, b_i, c_i)$，答案圆是 $(x, y, r)$，我们需要满足：</p>
