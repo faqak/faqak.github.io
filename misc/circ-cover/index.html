@@ -280,8 +280,7 @@
 <p>具体的分析在各种问题中是不一样的，但方向类似，下面用几道题简单说明一下。</p>
 <span class='anchor' id="合法圆覆盖"></span>
 <h3><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e5%90%88%e6%b3%95%e5%9c%86%e8%a6%86%e7%9b%96">#</a>合法圆覆盖</h3><blockquote>
-<p>给定平面上的 $n$ 个黑点 $(a_i, b_i)$，$m$ 个白点 $(c_i, d_i)$，找到一个圆覆盖所有黑点并且不覆盖任何白点。</p>
-</blockquote>
+<p>给定平面上的 $n$ 个黑点 $(a_i, b_i)$，$m$ 个白点 $(c_i, d_i)$，找到一个圆覆盖所有黑点并且不覆盖任何白点。</p></blockquote>
 <p>设答案圆为 $(x, y, r)$，那么 $(a_i, b_i)$ 被覆盖等价于：</p>
 
       
@@ -323,15 +322,13 @@
 <p>二分出最大的范围后，如果该范围是非空的，我们就得到了一组合法解，否则直接报告无解即可。</p>
 <span class='anchor' id="最小圆覆盖"></span>
 <h3><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%9c%80%e5%b0%8f%e5%9c%86%e8%a6%86%e7%9b%96">#</a>最小圆覆盖</h3><blockquote>
-<p>给定平面上的 $n$ 个点，求一个最小的圆覆盖所有点。</p>
-</blockquote>
+<p>给定平面上的 $n$ 个点，求一个最小的圆覆盖所有点。</p></blockquote>
 <p>我们仍然可以沿用上一部分的分析，但需要注意的是，我们的估价为 $\min (r^2 - x^2 - y^2)$，这实际上和题目所要最小化的目标 $r$ 是不一样的。</p>
 <p>但好在，我们的估价实际上是 $\min z$，所以我们只关心这个三维凸包的下凸壳。而对所有点 $z \gets z + x^2 + y^2$ 这个操作，由于 $f(x) = x^2$ 也是下凸的，那么原先的下凸壳在这次操作后仍然能够保持凸性。</p>
 <p>因此，我们把估价修改为 $\min r$ 即可得到正确的做法。</p>
 <span class='anchor' id="最大被覆盖圆"></span>
 <h3><a class="anchor-link" href="https://faqak.github.io/misc/circ-cover/#%e6%9c%80%e5%a4%a7%e8%a2%ab%e8%a6%86%e7%9b%96%e5%9c%86">#</a>最大被覆盖圆</h3><blockquote>
-<p>给定平面上 $n$ 个<strong>圆</strong>，找到一个最大的圆被这 $n$ 个圆的交覆盖。</p>
-</blockquote>
+<p>给定平面上 $n$ 个<strong>圆</strong>，找到一个最大的圆被这 $n$ 个圆的交覆盖。</p></blockquote>
 <p>假设给定的圆是 $(a_i, b_i, c_i)$，答案圆是 $(x, y, r)$，我们需要满足：</p>
 <ul>
 <li>$r \leq c_i$（这一部分很重要，否则变形不充要，我们也难以得到下面的优美结论）</li>

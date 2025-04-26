@@ -399,8 +399,7 @@ F(n) &\equiv \left(\prod_{i=0}^{u - 1}\sum_{k=0}^{e-1}(ip)^k\begin{bmatrix}p\\k 
 <blockquote>
 <p><strong>证明.</strong></p>
 <p>首先明确方向：为了确定这样的多元多项式关于积式枚举范围的次数，我们最好取个 $\ln$，求解关于和式枚举范围的次数（一般不是很困难），然后再 $\exp$ 回去。</p>
-<p>懒得写那个系数了，把它简记为 $a_k$，那么 $f_e(p, u)$ 形如</p>
-</blockquote>
+<p>懒得写那个系数了，把它简记为 $a_k$，那么 $f_e(p, u)$ 形如</p></blockquote>
 
       
     
@@ -419,8 +418,7 @@ F(n) &\equiv \left(\prod_{i=0}^{u - 1}\sum_{k=0}^{e-1}(ip)^k\begin{bmatrix}p\\k 
     
       
         <blockquote>
-<p>注意到我们在上面推式子时已经通过除以 $\begin{bmatrix}p\\1\end{bmatrix}$ 保证了 $a_0 = 1$，那么就可以两边取 $\ln$ 了：</p>
-</blockquote>
+<p>注意到我们在上面推式子时已经通过除以 $\begin{bmatrix}p\\1\end{bmatrix}$ 保证了 $a_0 = 1$，那么就可以两边取 $\ln$ 了：</p></blockquote>
       
     
   
@@ -443,8 +441,7 @@ F(n) &\equiv \left(\prod_{i=0}^{u - 1}\sum_{k=0}^{e-1}(ip)^k\begin{bmatrix}p\\k 
     
       
         <blockquote>
-<p>那么我们可以 $\exp$ 回去了。</p>
-</blockquote>
+<p>那么我们可以 $\exp$ 回去了。</p></blockquote>
       
     
   
@@ -467,8 +464,7 @@ f_e(p, u) &= \exp(\sum_{k \geq 1}b_ks_k(u)p^k)\\
         <blockquote>
 <p>我们现在要分析 $f_e(p, u)$ 中 $p^k$ 项所对 $u$ 的最高次项系数。假设其由 $\ln f_e(p, u)$ 中的 $p^{i_1}, p^{i_2}, \cdots, p^{i_j}$ 这 $j$ 项相乘贡献，那么含有 $u$ 的部分其实是 $\prod_{q=1}^j s_{i_q}(u)$。经典结论是 $s_x(u)$ 是关于 $u$ 的 $x + 1$ 次多项式，因此此时 $u$ 的次数是 $\sum (i_q + 1) = \sum i_q + j = k + j$，所以 $j$ 越大，贡献中的 $u$ 的次数越多。$j$ 最大时显然是 $j = k$ 且 $i_1 = i_2 = \cdots = i_j = 1$ 时，此时 $u$ 的次数为 $j + k = 2k$。因此，我们知道：$p^k$ 所对 $u$ 的最高次项系数为 $2k$。</p>
 <p>不要忘了题目对 $p^e$ 取模的条件。因此我们仍然可以把 $k \geq e$ 的项略去，此时整个多项式即为关于 $u$ 的 $(2e - 2)$ 次多项式。</p>
-<p>$\mathbf{\square.}$</p>
-</blockquote>
+<p>$\mathbf{\square.}$</p></blockquote>
 <p>因此，根据已经预处理好的第一类斯特林数，可以 $\mathcal O(e^2)$ 预处理出 $f_e(p, 0), f_e(p, 1), \cdots, f_e(p, 2e-2)$。然后即可在回答询问时 $\mathcal O(e)$ 拉插出 $f_e(p, u)$。</p>
 <p>综上，使用这种方法求解 $F$，可以做到 $\mathcal O(pe)$ 预处理，$\mathcal O(e)$ 回答 $F$。</p>
 <span class='anchor' id="ex-少项式平移"></span>
@@ -653,7 +649,11 @@ f_e(p, u) &= \exp(\sum_{k \geq 1}b_ks_k(u)p^k)\\
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><span class='anchor' id="reference"></span>
+<h3><a class="anchor-link" href="https://faqak.github.io/misc/binom-mod-pe/#reference">#</a>Reference</h3><ul>
+<li><a href="https://blog.prabowodjonatan.id/posts/binomial-mod-pe/">Binomial Modulo Prime Power</a>，本文 min_25 binom 相关部分是对这篇文章的翻译补充。</li>
+</ul>
+
       
     
   
